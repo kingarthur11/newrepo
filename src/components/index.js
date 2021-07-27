@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 // import PostComment from './login/postcomment'
 // import Updatecomment from './login/updatecomment'
 import PostAuthor from './login/register'
-// import UpdateAuthor from './login/updateauthor'
+import UpdateAuthor from './login/updateauthor'
 import UserTables from './table/userTables'
 
 const Index = () => {
@@ -18,9 +18,9 @@ const Index = () => {
                     <Route exact path="/"> <UserTables /></Route>
                     {/* <Route exact path="/"> <AuthorProfile /></Route> */}
                     {/* <Route exact path="/postcoment"><PostComment /></Route> */}
-                    {/* <Route exact path="/updatecomment"><Updatecomment/></Route>
+                    {/* <Route exact path="/updatecomment"><Updatecomment/></Route> */}
                     
-                    <Route exact path="/updateauthor"><UpdateAuthor/></Route> */}
+                    <Route exact path="/updateauthor"><UpdateAuthor/></Route>
                 </Switch>
             </Router>
         </div>

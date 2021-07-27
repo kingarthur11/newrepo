@@ -1,0 +1,55 @@
+ <caption>A summary of the UK's most famous punk bands</caption>
+                {/* <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>*/}
+
+                <tbody>
+                  {/*   <tr>
+                        <td>name</td>
+                        <td>{data.email}</td>
+
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>{data.email}</td>
+
+                    </tr>  */}
+                
+                    {/* {result.map((order, index) => {
+                        <tr index={index}>
+                            <td>{order.name}</td>
+                            <td>{order.email}</td>
+                        </tr>
+                    })}
+                </tbody> */}
+
+                {
+                    result.map((item) => (
+                        <tr key={item.id}>
+                           <td>{item.name}</td>
+                            <td>{item.email}</td>
+                        </tr>
+                    ))
+                    }
+                {/* <tbody>
+                    
+                    <tr>
+                        {data.map((user) => {
+                            return <UserTable key={user.id} {...user} />;
+                            })}
+                        <td>
+                            <span className="delete">delete</span>
+                            <span className="delete">update</span>
+                        </td>
+                    </tr>
+                </tbody> */}
+                <tfoot>
+                    <tr>
+                        <th >Total albums</th>
+                        <td >77</td>
+                    </tr>
+                </tfoot>

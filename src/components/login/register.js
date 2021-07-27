@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {registerAuthor} from '../../actions/auth';
+import {CreateUser} from '../../actions/auth';
 import './login.css'
 
 const MakeComment = () => {
@@ -12,11 +12,13 @@ const MakeComment = () => {
     }
     const [formData, setformData] = useState(user);
     const dispatch = useDispatch();
-
+    const clear = () => {
+       setformData(user)
+        }
     const handleSubmit = (e) => {
         e.preventDefault() 
-        dispatch(registerAuthor(formData));
-        // console.log(formData)
+        dispatch(CreateUser(formData));
+        clear()
     }
     // async function handleSubmit(e) {
     //     e.preventDefault() 
@@ -48,7 +50,7 @@ const MakeComment = () => {
                             id="name"
                             type="text"
                             name="name"
-                            value={formData.full_name}
+                            value={formData.name}
                             onChange={handleChange}
                         />
                     </div>

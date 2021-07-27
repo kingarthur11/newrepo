@@ -1,7 +1,5 @@
 export const FETCHALL = 'FETCHALL'
-export const POSTAUTHOR = 'POSTAUTHOR';
-export const POSTCOMMENT = 'POSTCOMMENT';
-export const UPDATE = 'UPDATE';
-export const UPDATEAUTHOR = 'UPDATEAUTHOR';
-export const DELETECOMMENT = 'DELETECOMMENT';
-export const DELETEAUTHOR = 'DELETEAUTHOR';
+export const FETCHONE = 'FETCHONE'
+export const CREATEUSER = 'CREATEUSER';
+export const UPDATEUSER = 'UPDATEUSER';
+export const DELETEUSER = 'DELETEUSER';

@@ -1,31 +1,27 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getAll} from '../../actions/auth';
-// import UserTable from './userTable'
+import {getAllUsers, deleteUser} from '../../actions/auth';
+import {Link} from 'react-router-dom'
 import './userTable.css'
 
 const UserTables = () => {
-
     const dispatch = useDispatch()
-
-    // const mapStateToProps = state => ({
-    //     postMessageList: state.auth.list.user
-    // })
-
-
-    const result = useSelector((state) => state.auth.list.user)
-    
+    const {data} = useSelector((state) => state.user.list);
+    console.log(data)
+       
     useEffect(() => {
-        dispatch(getAll());
+        dispatch(getAllUsers());
     }, [dispatch])
 
-    console.log(result)
+    const handleDelete = async (id) => {
+        if(window.confirm("are u sure you want to delete the user")){
+            dispatch(deleteUser(id));
+        }
+     }
 
     return (
         <div className="table-content">
-
             <table>
-                <caption>A summary of the UK's most famous punk bands</caption>
                 <thead>
                     <tr>
                         <th>name</th>
@@ -33,49 +29,18 @@ const UserTables = () => {
                         <th>Operation</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    {/* <tr>
-                        <td>name</td>
-                        <td>{data.email}</td>
-
-                    </tr>
-                    <tr>
-                        <td>name</td>
-                        <td>{data.email}</td>
-
-                    </tr> */}
-                
-                    {/* {data.map((order, index) => {
-                        <tr index={index}>
-                            <td>{order.name}</td>
-                            <td>{order.email}</td>
-                        </tr>
-                    })} */}
-                </tbody>
-
-                {/* {
-                    data.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.product_name}</td>
-                            <td>{item.product_category}</td>
-                            <td>{item.unit_price}</td>
-                            <td/>
-                        </tr>
-                    ))
-                    } */}
-                {/* <tbody>
-                    
-                    <tr>
-                        {data.map((user) => {
-                            return <UserTable key={user.id} {...user} />;
-                            })}
+                    {data?.map((user) => (
+                       <tr key={user.id}>
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
                         <td>
-                            <span className="delete">delete</span>
-                            <span className="delete">update</span>
+                            <Link to="/updateauthor"><button className="delete">update</button></Link>
+                            <span className="delete" onClick={() => handleDelete(user.id)}>delete</span>
                         </td>
-                    </tr>
-                </tbody> */}
+                        </tr>
+                    ) )}
+                </tbody>
                 <tfoot>
                     <tr>
                         <th >Total albums</th>
@@ -88,4 +53,4 @@ const UserTables = () => {
     
 }
 
-export default UserTables
+export default UserTables 
